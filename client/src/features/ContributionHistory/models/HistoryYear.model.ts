@@ -5,9 +5,9 @@
  * High: 6-10
  * Extreme: 11 or above
  */
-type SingleCell = {
+export type SingleCell = {
   dayNumber: number;
-  intensity: "empty" | "light" | "medium" | "high" | "extreme";
+  // intensity: "empty" | "light" | "medium" | "high" | "extreme";
   commitCount: number;
 };
 
