@@ -1,3 +1,9 @@
+import CommitBox from "./components/CommitBox";
+
 export default function ContributionHistory() {
-  return <div>index</div>;
+  return (
+    <div>
+      <CommitBox>hello</CommitBox>
+    </div>
+  );
 }
