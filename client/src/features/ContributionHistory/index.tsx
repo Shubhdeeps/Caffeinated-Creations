@@ -2,23 +2,20 @@ import CommitBox from "./components/CommitBox";
 import ContributionCell from "./components/ContributionCell";
 
 export default function ContributionHistory() {
+  const arr: number[] = Array.from(Array(365).keys());
+
   return (
-    <div>
-      <CommitBox>
-        <div className="flex flex-row gap-[3px]">
-          <GridColumn />
-          <GridColumn />
-          <GridColumn />
-          <GridColumn />
-          <GridColumn />
-          <GridColumn />
-          <GridColumn />
-          <GridColumn />
-          <GridColumn />
-          <GridColumn />
-          <GridColumn />
-        </div>
-      </CommitBox>
+    <div className="max-w-fit overflow-x-auto border p-2 rounded-md light:bg-primary-foreground">
+      <div className="flex flex-col flex-wrap h-[98px] w-[742px]">
+        {arr.map((n) => {
+          return (
+            <ContributionCell
+              commitCount={Math.floor(Math.random() * 10)}
+              dayNumber={n + 1}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
