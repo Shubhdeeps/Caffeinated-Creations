@@ -8,11 +8,17 @@ import {
   ReaderIcon,
   StarIcon,
 } from "@radix-ui/react-icons";
+import DarkModeSwitcher from "./DarkModeSwitcher";
 
 export default function Navbar() {
   return (
-    <nav className="w-full border-b md:px-10 pt-4 md:mx-auto space-y-4">
-      <div>Caffeinated Creation</div>
+    <nav className="w-full border-b md:px-10 pt-4  space-y-4 bg-secondary dark:bg-black relative">
+      <div className="border flex justify-between items-center w-full">
+        <div>Shubhdeep</div>
+        <div>
+          <DarkModeSwitcher />
+        </div>
+      </div>
       <div className="flex flex-row space-x-2">
         <NavButton isActive>
           <ReaderIcon />
