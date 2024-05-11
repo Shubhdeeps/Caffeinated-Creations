@@ -16,7 +16,7 @@ import { dateFromDay } from "../utils/utils";
  */
 function cellAndColorClass(count: number) {
   if (count < 1) {
-    return "bg-primary/5";
+    return "bg-gray-200 dark:bg-gray-900/80";
   }
   if (count < 3) {
     return "bg-primary/30";

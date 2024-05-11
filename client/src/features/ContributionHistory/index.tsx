@@ -53,17 +53,3 @@ function WeekdayTitle({ day }: { day: string }) {
 function MonthTitle({ month }: { month: string }) {
   return <div className="text-sm font-medium w-[60px]">{month}</div>;
 }
-
-// function GridColumn() {
-//   return (
-//     <div className="flex flex-col gap-[3px] ">
-//       <ContributionCell commitCount={0} dayNumber={1} />
-//       <ContributionCell commitCount={4} dayNumber={2} />
-//       <ContributionCell commitCount={2} dayNumber={3} />
-//       <ContributionCell commitCount={0} dayNumber={4} />
-//       <ContributionCell commitCount={8} dayNumber={5} />
-//       <ContributionCell commitCount={0} dayNumber={6} />
-//       <ContributionCell commitCount={11} dayNumber={7} />
-//     </div>
-//   );
-// }
