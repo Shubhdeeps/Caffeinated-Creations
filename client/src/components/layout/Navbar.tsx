@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import {
   BookmarkIcon,
@@ -11,6 +11,11 @@ import {
 } from "@radix-ui/react-icons";
 import DarkModeSwitcher from "./DarkModeSwitcher";
 import { Link, useLocation } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 
 const navBarItems: {
   link: string;
@@ -52,34 +57,47 @@ const navBarItems: {
 
 export default function Navbar() {
   const removeChilds = useRef<ChildNode[]>([]);
-
+  // const dropdownRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
   const divRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      if (!divRef.current) {
-        return;
-      }
-      const width = divRef.current!.clientWidth;
-      const innerWidth = window.innerWidth;
-      if (width + 100 >= innerWidth) {
-        // user is under scroll
-        const lastChild = divRef.current?.lastChild;
-        console.log("removing: ", divRef.current?.lastChild);
-        if (lastChild) {
-          removeChilds.current = [...removeChilds.current, lastChild];
-          divRef.current?.removeChild(lastChild);
-          return;
-        }
-      }
+  const dropdownItemRef = useRef<HTMLDivElement | null>(null);
+  const [showDropdown, setShowDropdown] = useState<boolean>(false);
+  console.log({ showDropdown });
 
-      if (width + 150 < innerWidth) {
-        //innerwidth is enough to accomodate another child
-        const lastChild = removeChilds.current.pop();
-        if (lastChild) {
-          divRef.current?.appendChild(lastChild);
-        }
+  function organizeNavItems() {
+    if (!divRef.current) {
+      return;
+    }
+    const width = divRef.current!.clientWidth;
+    const innerWidth = window.innerWidth;
+    if (width + 100 >= innerWidth) {
+      // user is under scroll
+      const lastChild = divRef.current?.lastChild;
+      if (lastChild) {
+        removeChilds.current = [...removeChilds.current, lastChild];
+        divRef.current?.removeChild(lastChild);
+        dropdownItemRef.current?.appendChild(lastChild);
+        return organizeNavItems();
       }
+    }
+
+    if (width + 150 < innerWidth) {
+      //innerwidth is enough to accomodate another child
+      const lastChild = removeChilds.current.pop();
+      if (lastChild) {
+        dropdownItemRef.current?.removeChild(lastChild);
+        divRef.current?.appendChild(lastChild);
+      }
+    }
+  }
+
+  useEffect(() => {
+    //on first load -> organize items
+    organizeNavItems();
+
+    //resize on size change
+    window.addEventListener("resize", () => {
+      organizeNavItems();
     });
   }, []);
 
@@ -104,9 +122,32 @@ export default function Navbar() {
             </NavButton>
           ))}
         </div>
-        <Button className="px-3 me-4" variant="secondary">
-          <DotsHorizontalIcon />
-        </Button>
+        <div className="relative">
+          <Button variant="secondary" className="">
+            <DotsHorizontalIcon />
+            {/*content */}
+            <div
+              ref={dropdownItemRef}
+              className="absolute top-[46px] right-0 w-fit min-h-20 border rounded-md bg-secondary flex flex-col z-20 items-start px-3 p-1"
+            ></div>
+          </Button>
+        </div>
+        {/* Dropdown */}
+        {/* <DropdownMenu open>
+          <DropdownMenuTrigger
+            onClick={() => console.log("triii")}
+            className="bg-secondary px-4 rounded-md outline-none mb-1"
+          >
+            <div onClick={() => console.log("trigger")}>
+              <DotsHorizontalIcon />
+            </div>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent
+            className={showDropdown ? "hidden" : ""}
+            ref={dropdownItemRef}
+            align="end"
+          ></DropdownMenuContent>
+        </DropdownMenu> */}
       </div>
     </nav>
   );
