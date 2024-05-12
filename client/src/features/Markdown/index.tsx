@@ -27,7 +27,7 @@ export default function Markdown() {
         )}
       </div>
       {/* Footer */}
-      <div className="sticky bottom-0 w-full h-10 bg-red-950"></div>
+      <div className="sticky bottom-0 w-full h-10 bg-secondary"></div>
     </div>
   );
 }
