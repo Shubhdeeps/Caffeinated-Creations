@@ -68,8 +68,6 @@ export default function Navbar() {
     }
   }
   function organizeNavItems() {
-    console.log("organizing");
-
     if (!divRef.current) {
       return;
     }
