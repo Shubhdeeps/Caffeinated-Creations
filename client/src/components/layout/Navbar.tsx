@@ -157,7 +157,7 @@ function NavButton({ children, isActive, link }: IProps) {
         </Link>
       </Button>
       {isActive && (
-        <div className="h-1 w-full absolute -bottom-[0.15rem] bg-primary" />
+        <div className="h-[2px] w-full absolute -bottom-[0.15rem] bg-primary/50" />
       )}
     </div>
   );
