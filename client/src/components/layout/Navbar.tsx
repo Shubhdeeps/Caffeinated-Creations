@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Button } from "../ui/button";
 import {
   BookmarkIcon,
@@ -61,16 +61,21 @@ export default function Navbar() {
   const location = useLocation();
   const divRef = useRef<HTMLDivElement | null>(null);
   const dropdownItemRef = useRef<HTMLDivElement | null>(null);
-  const [showDropdown, setShowDropdown] = useState<boolean>(false);
-  console.log({ showDropdown });
 
+  function repopulateNavItems() {
+    for (const item of removeChilds.current) {
+      dropdownItemRef.current?.appendChild(item);
+    }
+  }
   function organizeNavItems() {
+    console.log("organizing");
+
     if (!divRef.current) {
       return;
     }
     const width = divRef.current!.clientWidth;
     const innerWidth = window.innerWidth;
-    if (width + 100 >= innerWidth) {
+    if (width + 200 >= innerWidth) {
       // user is under scroll
       const lastChild = divRef.current?.lastChild;
       if (lastChild) {
@@ -109,8 +114,8 @@ export default function Navbar() {
           <DarkModeSwitcher />
         </div>
       </div>
-      <div className="flex flex-row justify-between">
-        <div ref={divRef} className="flex flex-row space-x-2 w-fit border">
+      <div className="flex flex-row justify-between pe-2 items-center">
+        <div ref={divRef} className="flex flex-row space-x-2 w-fit">
           {navBarItems.map((navItem) => (
             <NavButton
               isActive={location.pathname === navItem.link}
@@ -122,32 +127,19 @@ export default function Navbar() {
             </NavButton>
           ))}
         </div>
-        <div className="relative">
-          <Button variant="secondary" className="">
-            <DotsHorizontalIcon />
-            {/*content */}
-            <div
-              ref={dropdownItemRef}
-              className="absolute top-[46px] right-0 w-fit min-h-20 border rounded-md bg-secondary flex flex-col z-20 items-start px-3 p-1"
-            ></div>
-          </Button>
-        </div>
+
         {/* Dropdown */}
-        {/* <DropdownMenu open>
-          <DropdownMenuTrigger
-            onClick={() => console.log("triii")}
-            className="bg-secondary px-4 rounded-md outline-none mb-1"
-          >
-            <div onClick={() => console.log("trigger")}>
-              <DotsHorizontalIcon />
-            </div>
+        <DropdownMenu>
+          <DropdownMenuTrigger className="bg-secondary py-2 px-4 rounded-md outline-none mb-1 custom:hidden">
+            <DotsHorizontalIcon />
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className={showDropdown ? "hidden" : ""}
+            className="custom:hidden"
             ref={dropdownItemRef}
+            onFocus={repopulateNavItems}
             align="end"
           ></DropdownMenuContent>
-        </DropdownMenu> */}
+        </DropdownMenu>
       </div>
     </nav>
   );
