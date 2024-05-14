@@ -40,7 +40,7 @@ export default function DarkModeSwitcher() {
   }
   return (
     <div>
-      <Button variant="ghost" onClick={switchTheme}>
+      <Button className="rounded-full" variant="ghost" onClick={switchTheme}>
         {themeAndIconMap[currentMode]}
       </Button>
     </div>
