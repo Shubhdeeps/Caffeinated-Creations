@@ -18,8 +18,8 @@ export default function ContributionHistory() {
   const arr: number[] = Array.from(Array(365).keys());
 
   return (
-    <div className="max-w-fit overflow-x-auto border p-2 rounded-md light:bg-primary-foreground">
-      <div className="flex flex-row ms-[30px]">
+    <div className="max-w-fit overflow-x-auto border p-2 rounded-md light:bg-primary-foreground relative">
+      <div className="flex flex-row ms-[30px] w-full">
         {monthsArry.map((month) => (
           <MonthTitle month={month} />
         ))}
@@ -51,5 +51,5 @@ function WeekdayTitle({ day }: { day: string }) {
 }
 
 function MonthTitle({ month }: { month: string }) {
-  return <div className="text-sm font-medium w-[60px]">{month}</div>;
+  return <div className="text-sm font-medium min-w-[60px]">{month}</div>;
 }
