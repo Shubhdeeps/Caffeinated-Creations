@@ -7,7 +7,7 @@ export default function OverviewPage() {
       <div className="w-full h-full flex-[1] p-3 flex flex-col items-center">
         <Avatar />
       </div>
-      <div className="border rounded-md w-full h-full flex-[2.5] p-3 flex flex-col items-center">
+      <div className="rounded-md w-full h-full flex-[2.5] p-3 flex flex-col items-center">
         <div className="w-full">
           <ContributionHistory />
         </div>

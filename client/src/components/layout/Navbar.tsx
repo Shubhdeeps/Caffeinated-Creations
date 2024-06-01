@@ -105,9 +105,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="w-full border-b md:px-10 pt-4  space-y-4 bg-secondary dark:bg-black relative">
+    <nav className="w-full border-b md:px-10 pt-4 space-y-4 bg-secondary dark:bg-black relative">
       <div className="flex justify-between items-center w-full">
-        <div>Shubhdeep</div>
+        <div className="px-1 md:px-0">Shubhdeep</div>
         <div>
           <DarkModeSwitcher />
         </div>
