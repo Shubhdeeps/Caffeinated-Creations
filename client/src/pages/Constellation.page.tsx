@@ -3,9 +3,18 @@ import ConstellationsCard from "@/features/Constellations/components/Constellati
 
 export default function ConstellationPage() {
   return (
-    <div className="px-1 md:container">
+    <div className="pb-6">
       <ConstellationTopBar />
+      <div className="w-full border-b" />
       <ConstellationsCard />
+      <ConstellationsCard />
+      <ConstellationsCard />
+      <ConstellationsCard />
+      <ConstellationsCard />
+      <ConstellationsCard />
+      <ConstellationsCard />
+      <ConstellationsCard />
+      <div className="w-full border-t" />
     </div>
   );
 }

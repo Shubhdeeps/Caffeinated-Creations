@@ -16,7 +16,7 @@ export default function ConstellationsCard() {
   const { cTitle, cHeader, visibility, created, lastUpdated } = constellation;
   const isUpdated = created !== lastUpdated;
   return (
-    <div className="bg-transparent border-y py-2 min-h-20 min-w-[260px] xs:w-full max-w-[1100px]">
+    <div className="bg-transparent border-y py-2 min-h-20 min-w-[260px] w-full">
       <div className="space-x-2 flex gap-1 items-center">
         <Link
           className="text-lg hover:underline text-blue-500 font-bold"
