@@ -1,0 +1,128 @@
+#contribution-graph {
+  display: flex;
+  flex-wrap: wrap;
+  width: 364px;
+}
+
+.day {
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  border-radius: 2px;
+}
+
+.level-0 {
+  background-color: #ebedf0;
+}
+
+.level-1 {
+  background-color: #9be9a8;
+}
+
+.level-2 {
+  background-color: #40c463;
+}
+
+.level-3 {
+  background-color: #30a14e;
+}
+
+.level-4 {
+  background-color: #216e39;
+}
+
+/* UPDATED CSS */
+
+table {
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  width: 10px;
+  height: 10px;
+  margin: 2px;
+  text-align: center;
+}
+
+th {
+  background-color: #f6f8fa;
+  text-align: center;
+}
+
+td {
+  border: 1px solid #e1e4e8;
+}
+
+td[data-level="0"] {
+  background-color: #ebedf0;
+}
+
+td[data-level="1"] {
+  background-color: #9be9a8;
+}
+
+td[data-level="2"] {
+  background-color: #40c463;
+}
+
+td[data-level="3"] {
+  background-color: #30a14e;
+}
+
+td[data-level="4"] {
+  background-color: #216e39;
+}
+
+/* Article - https://bitsofco.de/github-contribution-graph-css-grid/ */
+
+/* Grid-related CSS */
+.chart-table {
+  border-spacing: 3px;
+  overflow: hidden;
+  position: relative;
+  width: max-content;
+  border-collapse: separate;
+}
+
+/* .ContributionCalendar-label {
+  padding: 0.125em 0.5em 0.125em 0;
+  font-size: 12px;
+  font-weight: var(--base-text-weight-normal, 400);
+  color: var(--color-fg-default);
+  text-align: left;
+  fill: var(--color-fg-default);
+} */
+
+.contribution-block {
+  width: 10px;
+  border-radius: 3px;
+  outline: #1b1f230f;
+  shape-rendering: geometricPrecision;
+}
+
+.week-label {
+}
+
+.day-rows {
+  line-height: 0px;
+}
+
+.day-rows > th {
+  text-align: left;
+  font-size: 10px;
+  font-size: 10px;
+  line-height: 0px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  word-wrap: normal;
+  border: 0;
+}

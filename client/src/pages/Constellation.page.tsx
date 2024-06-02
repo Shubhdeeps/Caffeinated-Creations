@@ -7,13 +7,8 @@ export default function ConstellationPage() {
       <ConstellationTopBar />
       <div className="w-full border-b" />
       <ConstellationsCard />
-      <ConstellationsCard />
-      <ConstellationsCard />
-      <ConstellationsCard />
-      <ConstellationsCard />
-      <ConstellationsCard />
-      <ConstellationsCard />
-      <ConstellationsCard />
+
+      <div></div>
       <div className="w-full border-t" />
     </div>
   );
