@@ -1,6 +1,3 @@
-import React from "react";
-import { followersSVG } from "../assets/followers.svg";
-
 export default function Avatar() {
   return (
     <div className="space-y-3">

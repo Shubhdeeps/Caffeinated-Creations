@@ -1,6 +1,5 @@
 import { ConstellationsModel } from "../models/Constellations.model";
 import { Link } from "react-router-dom";
-import Activity from "@/features/Activity";
 import { epochTimestampToStr } from "@/utils/helperFunctions/epochTimestampToStr";
 
 const constellation: ConstellationsModel = {
@@ -14,11 +13,11 @@ const constellation: ConstellationsModel = {
   totalStars: 1,
   visibility: "public",
 };
-export default function ConstellationsCard() {
+export default function HighlightedConstellationCard() {
   const { cTitle, cHeader, visibility, created, lastUpdated } = constellation;
   const isUpdated = created !== lastUpdated;
   return (
-    <div className="bg-transparent border-y py-2 min-h-20 min-w-[260px] w-full flex justify-between">
+    <div className="bg-transparent border rounded-md p-2 min-h-20 w-full lg:w-[49%] xl:w-[49.4%]">
       <div>
         <div className="space-x-2 flex gap-1 items-center">
           <Link
@@ -40,9 +39,6 @@ export default function ConstellationsCard() {
             Updated {epochTimestampToStr(lastUpdated)}
           </div>
         )}
-      </div>
-      <div className="h-[80px] max-w-[300px] hidden sm:flex">
-        <Activity data={[0, 0, 0, 5, 0, 0, 0]} />
       </div>
     </div>
   );
