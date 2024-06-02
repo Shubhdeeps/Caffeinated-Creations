@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import DataVisualizationSuite from "../graph/dataVisulization";
+import DataVisualizationSuite from "../../Constellations/graph/dataVisulization";
 import {
   Tooltip,
   TooltipContent,
@@ -10,7 +10,7 @@ import {
 type Props = {
   data: number[];
 };
-export default function ConstellationActivity({ data }: Props) {
+export default function Activity({ data }: Props) {
   const ref = useRef<HTMLCanvasElement | null>(null);
   useEffect(() => {
     if (ref.current) {

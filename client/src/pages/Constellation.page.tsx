@@ -1,5 +1,7 @@
-import ConstellationTopBar from "@/features/Constellations/components/ConstellationTopBar";
-import ConstellationsCard from "@/features/Constellations/components/ConstellationsCard";
+import {
+  ConstellationsCard,
+  ConstellationTopBar,
+} from "@/features/Constellations";
 
 export default function ConstellationPage() {
   return (
@@ -8,7 +10,6 @@ export default function ConstellationPage() {
       <div className="w-full border-b" />
       <ConstellationsCard />
 
-      <div></div>
       <div className="w-full border-t" />
     </div>
   );

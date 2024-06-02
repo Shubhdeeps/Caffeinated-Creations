@@ -9,7 +9,9 @@ export function epochTimestampToStr(timestamp: EpochTimeStamp) {
     return `${Math.floor(diff / 3600)} hrs ago`;
   } else if (diff < 172800) {
     return `yesterday`;
+  } else if (diff < 2_628_288) {
+    return `${Math.floor(diff / 172800)} days ago`;
   } else {
-    return `${Math.floor(diff / 86400)} days ago`;
+    return `${Math.floor(diff / 2_628_288)} months ago`;
   }
 }

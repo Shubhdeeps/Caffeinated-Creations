@@ -18,7 +18,7 @@ export default function ContributionHistory() {
   const arr: number[] = Array.from(Array(365).keys());
 
   return (
-    <div className="max-w-fit overflow-x-auto border p-2 rounded-md light:bg-primary-foreground relative">
+    <div className="max-w-fit overflow-x-auto border p-2 rounded-md light:bg-primary-foreground relative history">
       <div className="flex flex-row ms-[30px] w-full">
         {monthsArry.map((month) => (
           <MonthTitle month={month} />
